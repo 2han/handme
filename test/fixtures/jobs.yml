@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: 1
+  fee: 
+  user_id: 1
+  title: MyString
+  introduction: MyText
+  deadline: 2014-11-20 04:00:36
+  place: MyString
+
+two:
+  status: 1
+  fee: 
+  user_id: 1
+  title: MyString
+  introduction: MyText
+  deadline: 2014-11-20 04:00:36
+  place: MyString
