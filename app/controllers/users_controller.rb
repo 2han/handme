@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :signed_in_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
   # GET /users
   # GET /users.json
   def index
@@ -23,17 +24,16 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
-  def create
+def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @user }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    file = params[:user][:image]
+    @user.set_image(file)
+    if @user.save
+      sign_in @user
+      flash[:success] = "Welcome to Twitter!"
+      redirect_to @user
+    else
+      render 'new'
     end
   end
 
@@ -61,14 +61,27 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
+  
+
+private
+
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :introduction)
+    end
+
+    # Before actions
+
     def set_user
       @user = User.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:name, :email, :password_digest, :remember_token, :age, :introduction)
+    def signed_in_user
+      redirect_to signin_url, notice: "Please sign in." unless signed_in?
     end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless current_user?(@user)
+    end
+
 end

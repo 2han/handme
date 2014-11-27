@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
+  get "about/index"
+  root  'about#index'
+  match '/about', to:'about#index', via:'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+
   resources :reviews
-
   resources :jobs
-
   resources :applies
-
   resources :messages
-
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
