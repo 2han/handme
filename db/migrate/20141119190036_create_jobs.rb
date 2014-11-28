@@ -11,5 +11,8 @@ class CreateJobs < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :apply, :user_id
+    add_index :apply, :job_id
+    add_index :apply, [:user_id, :job_id], unique: true
   end
 end

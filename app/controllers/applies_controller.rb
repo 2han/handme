@@ -23,18 +23,11 @@ class AppliesController < ApplicationController
 
   # POST /applies
   # POST /applies.json
-  def create
-    @apply = Apply.new(apply_params)
+ def create
+    @job = Job.find(params[:job_id])
+    current_user.apply!(@job)
 
-    respond_to do |format|
-      if @apply.save
-        format.html { redirect_to @apply, notice: 'Apply was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @apply }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @apply.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to @job
   end
 
   # PATCH/PUT /applies/1
@@ -54,11 +47,8 @@ class AppliesController < ApplicationController
   # DELETE /applies/1
   # DELETE /applies/1.json
   def destroy
-    @apply.destroy
-    respond_to do |format|
-      format.html { redirect_to applies_url }
-      format.json { head :no_content }
-    end
+    @job = Apply.find(params[:id]).job
+    current_user.unapply!(@job)
   end
 
   private

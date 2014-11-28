@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @jobs = @user.jobs.paginate(page: params[:page])
   end
 
   # GET /users/1
@@ -61,7 +62,12 @@ def create
     end
   end
 
-  
+  def apply
+    @title = 'Apply jobs'
+    @job = current_user.jobs.build
+    @feed_jobs = current_user.apply_jobs.paginate(page: params[:page])
+    render template: 'about/index'
+  end
 
 private
 

@@ -26,6 +26,20 @@ def User.new_remember_token
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+
+  def apply?(job)
+    applies.find_by(job_id: job.id)
+  end
+
+  def apply!(job)
+    applies.create!(job_id: job.id)
+  end
+
+  def unapply!(job)
+    applies.find_by(job_id: job.id).destroy
+  end
+
+
   private
 
     def create_remember_token

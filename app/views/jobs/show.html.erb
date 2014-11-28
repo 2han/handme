@@ -35,5 +35,11 @@
   <%= @job.place %>
 </p>
 
+<% if current_user.apply?(@job) %>
+    <%= 'Sorry this job is not available.' %>
+<% else %>
+    <%= link_to 'apply', applies_path(job_id: @job.id), method: :post %>
+<% end %>
+
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>

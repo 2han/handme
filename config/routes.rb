@@ -1,15 +1,22 @@
 Rails.application.routes.draw do
+  get "mypage/applying"
+  get "mypage/applied"
   get "about/index"
   root  'about#index'
   match '/about', to:'about#index', via:'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
+  resources :users do
+    member do
+      get :applies
+    end
+  end
+
   resources :reviews
   resources :jobs
-  resources :applies
+  resources :applies, only: [:create, :destroy]
   resources :messages
-  resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -66,4 +73,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end

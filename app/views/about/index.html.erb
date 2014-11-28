@@ -1,6 +1,19 @@
+<% if signed_in? %>
+
+	<div class="center">
+		<%= link_to "jobを頼む！", new_job_path, class: "btn btn-large" %>
+	</div>
+
+	<div class="center">
+		<%= link_to "jobを探す！", jobs_path, class: "btn btn-large" %>
+	</div>
+
+<% else %>
+
 <h1>Handmeへようこそ！</h1>
 <p>下のボタンで簡単に登録できるよ！</p>
-  <div class="center hero-unit">
-    <%= link_to "さっそく、登録！", new_user_path, class: "btn btn-large" %>
-  </div>
+	<div class="center hero-unit">
+		<%= link_to "さっそく、登録！", new_user_path, class: "btn btn-large" %>
+	</div>
 
+<% end %>
