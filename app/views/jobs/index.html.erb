@@ -1,17 +1,13 @@
-<h1>Listing jobs</h1>
+<h1>仕事一覧</h1>
 <table>
   <thead>
     <tr>
-      <th>Status</th>
-      <th>Fee</th>
-      <th>User</th>
-      <th>Title</th>
-      <th>Introduction</th>
-      <th>Deadline</th>
-      <th>Place</th>
       <th></th>
-      <th></th>
-      <th></th>
+      <th>金額</th>
+      <th>依頼者名</th>
+      <th>仕事の詳細</th>
+      <th>期限</th>
+      <th>場所</th>
     </tr>
   </thead>
 
@@ -25,9 +21,9 @@
         <td><%= job.introduction %></td>
         <td><%= job.deadline %></td>
         <td><%= job.place %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'もっと見る', job %></td>
+        <td><%= link_to '仕事内容を編集する', edit_job_path(job) %></td>
+        <td><%= link_to '仕事を削除する', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -35,6 +31,4 @@
 
 <%= will_paginate @jobs %>
 
-<br>
 
-<%= link_to 'New Job', new_job_path %>

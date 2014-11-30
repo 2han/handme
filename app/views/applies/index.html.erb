@@ -1,31 +1,9 @@
-<h1>Listing applies</h1>
+<h1>申請されたリスト</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Job</th>
-      <th>Status</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<% @jobs.each do |job|%>
+  <div><%= job.title %></div>
+  <% job.applies.each do |apply| %>
+  <div><%= apply.user_id %></div>
+  <% end %>
+<% end %>
 
-  <tbody>
-    <% @applies.each do |apply| %>
-      <tr>
-        <td><%= apply.user_id %></td>
-        <td><%= apply.job_id %></td>
-        <td><%= apply.status %></td>
-        <td><%= link_to 'Show', apply %></td>
-        <td><%= link_to 'Edit', edit_apply_path(apply) %></td>
-        <td><%= link_to 'Destroy', apply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Apply', new_apply_path %>

@@ -4,7 +4,7 @@ class AppliesController < ApplicationController
   # GET /applies
   # GET /applies.json
   def index
-    @applies = Apply.all
+    @jobs = current_user.jobs
   end
 
   # GET /applies/1
@@ -43,6 +43,7 @@ class AppliesController < ApplicationController
       end
     end
   end
+
 
   # DELETE /applies/1
   # DELETE /applies/1.json

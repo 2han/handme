@@ -1,5 +1,7 @@
 <% if signed_in? %>
 
+<div class="jobBtn">
+
 	<div class="center">
 		<%= link_to "jobを頼む！", new_job_path, class: "btn btn-large" %>
 	</div>
@@ -8,9 +10,11 @@
 		<%= link_to "jobを探す！", jobs_path, class: "btn btn-large" %>
 	</div>
 
+<div><!-- /.jobBtn -->
+
 <% else %>
 
-<h1>Handmeへようこそ！</h1>
+<h1 class="topMesa">Handmeへようこそ！</h1>
 <p>下のボタンで簡単に登録できるよ！</p>
 	<div class="center hero-unit">
 		<%= link_to "さっそく、登録！", new_user_path, class: "btn btn-large" %>

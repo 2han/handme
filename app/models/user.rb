@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
   has_many :jobs
+  has_many :job_applies, through: :jobs, source: :applies
   has_many :applies
   has_many :reviews
 
@@ -38,7 +39,6 @@ def User.new_remember_token
   def unapply!(job)
     applies.find_by(job_id: job.id).destroy
   end
-
 
   private
 

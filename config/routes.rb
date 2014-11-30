@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get "mypage/applying"
   get "mypage/applied"
   get "about/index"
@@ -15,11 +16,9 @@ Rails.application.routes.draw do
 
   resources :reviews
   resources :jobs
-  resources :applies, only: [:create, :destroy]
+  resources :applies
   resources :messages
-  resources :sessions, only: [:new, :create, :destroy]
-
-  # The priority is based upon order of creation: first created -> highest priority.
+  resources :sessions, only: [:new, :create, :destroy]  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
