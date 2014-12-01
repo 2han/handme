@@ -1,5 +1,5 @@
 class AppliesController < ApplicationController
-  before_action :set_apply, only: [:show, :edit, :update, :destroy]
+  before_action :set_apply, only: [:show, :edit, :update, :destroy, :approve]
 
   # GET /applies
   # GET /applies.json
@@ -23,12 +23,21 @@ class AppliesController < ApplicationController
 
   # POST /applies
   # POST /applies.json
- def create
+  def create
     @job = Job.find(params[:job_id])
     current_user.apply!(@job)
-
     redirect_to @job
   end
+
+  def approve
+    # @applyのstatusを1にする
+    @apply.status = 1
+    @apply.save
+    # saveする
+    # redirectする
+    redirect_to @apply
+  end
+
 
   # PATCH/PUT /applies/1
   # PATCH/PUT /applies/1.json

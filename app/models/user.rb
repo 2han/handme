@@ -40,6 +40,7 @@ def User.new_remember_token
     applies.find_by(job_id: job.id).destroy
   end
 
+
   private
 
     def create_remember_token

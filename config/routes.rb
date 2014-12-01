@@ -15,9 +15,17 @@ Rails.application.routes.draw do
   end
 
   resources :reviews
+
   resources :jobs
-  resources :applies
+
+  resources :applies do
+    member do
+      get :approve
+    end
+  end
+
   resources :messages
+
   resources :sessions, only: [:new, :create, :destroy]  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
