@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   get "mypage/applying"
   get "mypage/applied"
   get "about/index"
@@ -25,8 +26,8 @@ Rails.application.routes.draw do
   end
 
   resources :messages
+  # resources :sessions, only: [:new, :create, :destroy]  # The priority is based upon order of creation: first created -> highest priority.
 
-  resources :sessions, only: [:new, :create, :destroy]  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"

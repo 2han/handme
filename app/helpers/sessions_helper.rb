@@ -20,13 +20,9 @@ module SessionsHelper
     @current_user = user
   end
 
+  #current_userの存在の確認
   def current_user?(user)
     user == current_user
-  end
-
-def sign_out
-    self.current_user = nil
-    cookies.delete(:remember_token)
   end
 
 end
