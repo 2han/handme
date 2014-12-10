@@ -4,6 +4,11 @@
   <div><%= job.title %></div>
   <% job.applies.each do |apply| %>
   <div><%= apply.user_id %></div>
+
+  <% if apply.status == 1 %>
+      <%= '承認済み' %>
+  <% else %>
+      <%= link_to '承認する', approve_apply_path(id: apply.id) %>
+  <% end %>
   <% end %>
 <% end %>
-
