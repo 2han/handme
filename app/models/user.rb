@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :omniauthable, :recoverable,
+         :registerable, :rememberable, :trackable, :validatable
   before_create :create_remember_token
   # validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -44,6 +42,24 @@ def User.new_remember_token
     applies.find_by(job_id: job.id).destroy
   end
 
+
+# 通常サインアップ時のuid用、Twitter OAuth認証時のemail用にuuidな文字列を生成
+  def self.create_unique_string
+    SecureRandom.uuid
+  end
+
+def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    unless user
+      user = User.create(name:     auth.extra.raw_info.name,
+                         provider: auth.provider,
+                         uid:      auth.uid,
+                         email:    auth.info.email,
+                         password: Devise.friendly_token[0,20]
+                        )
+    end
+    user
+  end
 
   private
 

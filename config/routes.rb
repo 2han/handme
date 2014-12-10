@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   get "mypage/applying"
   get "mypage/applied"
   get "about/index"
   root  'about#index'
   match '/about', to:'about#index', via:'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  # match '/signin',  to: 'sessions#new',         via: 'get'
+  # match '/signout', to: 'sessions#destroy',     via: 'delete'
+
+  devise_for :users, :controllers => {
+  :registrations => "users/registrations",
+  :omniauth_callbacks => "users/omniauth_callbacks" 
+}
 
   resources :users do
     member do
@@ -26,6 +30,9 @@ Rails.application.routes.draw do
   end
 
   resources :messages
+
+  
+
   # resources :sessions, only: [:new, :create, :destroy]  # The priority is based upon order of creation: first created -> highest priority.
 
   # See how all your routes lay out with "rake routes".
