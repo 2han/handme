@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209192447) do
+ActiveRecord::Schema.define(version: 20141211134610) do
 
   create_table "applies", force: true do |t|
     t.integer  "user_id"
@@ -49,6 +49,11 @@ ActiveRecord::Schema.define(version: 20141209192447) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "apply_id"
+  end
+
+  create_table "mypages", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "reviews", force: true do |t|
