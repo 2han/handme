@@ -10,8 +10,12 @@ class User < ActiveRecord::Base
   has_many :jobs
   has_many :job_applies, through: :jobs, source: :applies
   has_many :applies
-  has_many :reviews
 
+  has_many :reviewing_reviews, class_name: "Review", foreign_key: "reviewed_id", dependent: :destroy
+  has_many :reviewings, through: :reviewing_reviews
+
+  has_many :reviewed_reviews, foreign_key: "reviewing_id", class_name: "Review", dependent: :destroy
+  has_many :revieweds, through: :reviewed_reviews
 
   def set_image(file)
       if !file.nil?
@@ -21,14 +25,13 @@ class User < ActiveRecord::Base
       end
   end
 
-def User.new_remember_token
+  def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
 
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
   end
-
 
   def apply?(job)
     applies.find_by(job_id: job.id)
@@ -42,6 +45,13 @@ def User.new_remember_token
     applies.find_by(job_id: job.id).destroy
   end
 
+  def reviewing?(other_user)
+    reviewing_reviews.find_by(reviewing_id: other_user.id)
+  end
+
+  def review!(other_user)
+    reviewing_reviews.create!(reviewing_id: other_user.id)
+  end
 
 # 通常サインアップ時のuid用、Twitter OAuth認証時のemail用にuuidな文字列を生成
   def self.create_unique_string

@@ -21,5 +21,7 @@
   <%= @user.introduction %>
 </p>
 
+<%= link_to 'レビューを書く', new_review_path(user_id: @user.id) %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

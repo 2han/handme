@@ -10,16 +10,15 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => {
   :registrations => "users/registrations",
-  :omniauth_callbacks => "users/omniauth_callbacks" 
+  :omniauth_callbacks => "users/omniauth_callbacks"
 }
 
   resources :users do
     member do
-      get :applies
+      get :applies, :reviewed, :reviewing
     end
   end
 
-  resources :reviews
 
   resources :jobs
 
@@ -32,6 +31,8 @@ Rails.application.routes.draw do
   resources :messages
 
   resources :mypages
+
+  resources :reviews
 
   # resources :sessions, only: [:new, :create, :destroy]  # The priority is based upon order of creation: first created -> highest priority.
 

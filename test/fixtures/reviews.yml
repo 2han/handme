@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  from_user_id: 1
-  to_user_id: 1
-  score: 1
+  reviewing_id: 1
+  reviewed_id: 1
+  text: MyText
+  scare: 1
 
 two:
-  from_user_id: 1
-  to_user_id: 1
-  score: 1
+  reviewing_id: 1
+  reviewed_id: 1
+  text: MyText
+  scare: 1

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211134610) do
+ActiveRecord::Schema.define(version: 20141217140434) do
 
   create_table "applies", force: true do |t|
     t.integer  "user_id"
@@ -57,8 +57,9 @@ ActiveRecord::Schema.define(version: 20141211134610) do
   end
 
   create_table "reviews", force: true do |t|
-    t.integer  "from_user_id"
-    t.integer  "to_user_id"
+    t.integer  "reviewing_id"
+    t.integer  "reviewed_id"
+    t.text     "text"
     t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
