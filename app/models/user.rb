@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  acts_as_taggable # acts_as_taggable_on :tags のエイリアス
   devise :database_authenticatable, :omniauthable, :recoverable,
          :registerable, :rememberable, :trackable, :validatable
   before_create :create_remember_token

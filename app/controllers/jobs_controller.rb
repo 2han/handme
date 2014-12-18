@@ -11,11 +11,12 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
+    @tags = @job.tags
   end
 
   # GET /jobs/new
   def new
-    @job = Job.new
+    @job = Job.new(:title => "Bobby")
   end
 
   # GET /jobs/1/edit
@@ -71,6 +72,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:status, :fee, :title, :introduction, :deadline, :place)
+      params.require(:job).permit(:status, :fee, :title, :introduction, :deadline, :place, :name, :tag_list)
     end
 end

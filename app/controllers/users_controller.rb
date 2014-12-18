@@ -44,6 +44,11 @@ class UsersController < ApplicationController
     render template: 'about/index'
   end
 
+  def tag_cloud
+    # order('count DESC')でカウントの多い順にタグを並べています
+    @tags = User.tag_counts_on(:tags).order('count DESC')
+  end
+
 private
 
     def user_params

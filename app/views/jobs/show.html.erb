@@ -30,6 +30,12 @@
   <%= @job.place %>
 </p>
 
+<div>
+<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+<div class="original-tag"><%= link_to tag.name, tag_path(tag.id) %>
+</div>
+<% end %>
+<div>
 <% if current_user.apply?(@job) %>
     <%= '申請中' %>
 <% else %>

@@ -12,7 +12,6 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.save
-    raise "hi"
     # @user = User.find(params[:review][:reviewing_id])
     # current_user.review!(@user)
     redirect_to @review
