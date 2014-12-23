@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-
+  get "payment/index"
+  post "payment/purchase"
+  get "payment/purchased"
+  root 'about#index'
   get "mypage/applying"
   get "mypage/applied"
   get "about/index"
@@ -35,5 +38,4 @@ Rails.application.routes.draw do
 
   resources :tags
 
-  root  'about#index'
 end

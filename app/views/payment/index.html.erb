@@ -1,0 +1,3 @@
+<%= form_tag(action: :purchase, method: :post) do %>
+<script src="https://checkout.webpay.jp/v1/" class="webpay-button" data-key="<%= WEBPAY_PUBLIC_KEY %>"></script>
+<% end %>

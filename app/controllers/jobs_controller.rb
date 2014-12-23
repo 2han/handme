@@ -16,7 +16,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    @job = Job.new(:title => "Bobby")
+    @job = Job.new
   end
 
   # GET /jobs/1/edit
