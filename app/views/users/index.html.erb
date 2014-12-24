@@ -3,10 +3,9 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Age</th>
-      <th>Introduction</th>
+      <th>名前</th>
+      <th>年齢</th>
+      <th>紹介</th>
     </tr>
   </thead>
 
@@ -14,7 +13,6 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-        <td><%= user.email %></td>
         <td><%= user.age %></td>
         <td><%= user.introduction %></td>
         <td><%= link_to 'Show', user %></td>
@@ -24,7 +22,3 @@
     <% end %>
   </tbody>
 </table>
-
-<!-- <br>
-
-<%= link_to 'New User', new_user_path %> -->

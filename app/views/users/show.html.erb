@@ -1,23 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>名前</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+  <strong>プロフィール画像</strong>
+  <%= image_tag(@user.image) %>
 </p>
 
-
 <p>
-  <strong>Age:</strong>
+  <strong>年齢</strong>
   <%= @user.age %>
 </p>
 
 <p>
-  <strong>Introduction:</strong>
+  <strong>紹介</strong>
   <%= @user.introduction %>
 </p>
 

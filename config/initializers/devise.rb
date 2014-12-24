@@ -258,5 +258,5 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   # API key
- config.omniauth :facebook, "1422539031301901", "4776f9c474c75b2a329500874951c340"
+ config.omniauth :facebook, "1422539031301901", "4776f9c474c75b2a329500874951c340", :scope => 'email,user_birthday', :display =>'popup'
 end
