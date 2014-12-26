@@ -1,28 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Fee:</strong>
+  <strong>金額</strong>
   <%= @job.fee %>
 </p>
 
 
 <p>
-  <strong>Title:</strong>
+  <strong>内容</strong>
   <%= @job.title %>
 </p>
 
 <p>
-  <strong>Introduction:</strong>
+  <strong>詳細</strong>
   <%= @job.introduction %>
 </p>
 
 <p>
-  <strong>Deadline:</strong>
+  <strong>期限</strong>
   <%= @job.deadline %>
 </p>
 
 <p>
-  <strong>Place:</strong>
+  <strong>場所</strong>
   <%= @job.place %>
 </p>
 
@@ -31,13 +31,12 @@
 <div class="original-tag"><%= link_to tag.name, tag_path(tag.id) %>
 </div>
 <% end %>
-<div>
+<div class="btn btn-success applybtn">
 <% if current_user.apply?(@job) %>
     <%= '申請中' %>
 <% else %>
     <%= link_to '申請する', applies_path(job_id: @job.id), method: :post %>
 <% end %>
+</div>
 
-
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+<%= link_to '戻る', jobs_path %>

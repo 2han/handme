@@ -39,7 +39,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  // padding-top: 60px;
 }
 
 section {
@@ -289,4 +289,11 @@ aside {
 
 .reply{
   display: none;
+}
+
+.navbar-inverse .navbar-inner{
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#00964b), to(#00964b));
+}
+.navbar-inverse .brand, .navbar-inverse .nav > li > a{
+  color: #fff;
 }

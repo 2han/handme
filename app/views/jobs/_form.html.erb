@@ -1,3 +1,7 @@
+
+<div class="row">
+<div class="span6 offset3">
+
 <%= form_for(@job) do |f| %>
   <% if @job.errors.any? %>
     <div id="error_explanation">
@@ -46,3 +50,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div><!-- /.span6 offset3 -->
+</div><!-- /.row -->

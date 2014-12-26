@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+.logoDe{
+	color: #2e8b57;
+	font-size: 25px;
+}
+.footerDe{
+	color: #2e8b57;
+	font-size: 15px;
+}
+
+.btnMore{
+	color: #00bfff;
+}
