@@ -1,29 +1,14 @@
 <h1>仕事一覧</h1>
 
-        <div class="jobBox">
-          <div><p class="whoClient">bitcoin研究会<p></div>
-          <div class="jobContentLeft">
-            <div>ユーザーネーム</div>
-            <div>ユーザーの画像</div>
-          </div><!-- jobContentLeft -->
-          <div class="jobContentRight">
-             <div>報酬</div>
-             <div>仕事内容</div>
-             <div>申請期限</div>
-             <div>場所</div>
-          <div>もっと見る</div>
-          </div><!-- jobContentRight -->
-        </div><!-- /.jobBox -->
 
-
-<!-- <table class="table table-hover">
+<table class="table table-hover">
   <thead>
     <tr>
       <th></th>
       <th>金額</th>
       <th>依頼者名</th>
       <th>仕事内容</th>
-      <th>期限</th>
+      <th>時間</th>
       <th>場所</th>
     </tr>
   </thead>
@@ -38,7 +23,7 @@
         <td><%= job.deadline %></td>
         <td><%= job.place %></td>
 <td></td>
-        <td class="btn btnMore"><%= link_to 'もっと見る', job %></td>
+        <td class="btn btnMore btn-sm"><%= link_to 'もっと見る', job %></td>
       </tr>
     <% end %>
   </tbody>

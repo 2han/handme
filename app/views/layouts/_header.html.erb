@@ -1,15 +1,19 @@
-<header class="navbar navbar-fixed-top navbar-inverse headerHight">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to root_path, id: "logo" do %>
-        <i class="fa fa-paypal"></i>
+      <header id="header" class="site-header">
+
+        <nav id="navbar" class="site-navbar navbar navbar-static-top" role="navigation">
+
+
+
+          <div class="container">
+     <%= link_to root_path, id: "Ventie" do %>
+        <span id="Ventie">Ventie</span>
       <% end %>
-      <nav>
-        <ul class="nav pull-right">
-          <% if user_signed_in? %>
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+              <ul id="navigation" class="nav navbar-nav navbar-right">
+<% if user_signed_in? %>
+
             <li><%= link_to "お支払い", payment_index_path , method: :get %></li>
-<!--             <li><%= link_to "Users", users_path %></li> -->
-            <li><%= link_to "タスク状況", mypages_path , method: :get %></li>
+            <li><i class="fa fa-bell fa-2x mb20"></i></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
@@ -23,11 +27,18 @@
                 </li>
               </ul>
             </li>
-          <% else %>
-            <li><%= link_to "Sign in", new_user_session_path , method: :get %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
+
+  <% else %>
+
+                <li class="active"><a href="#header" class="current">Home</a></li>
+                <li><a href="#features">Ventieとは？</a></li>
+                <li><a href="#portfolio">イベントスタッフを依頼する流れ</a></li>
+                <li><a href="#testimonials">イベントスタッフの仕事を受注する流れ</a></li>
+                <li><a href="#blog">Vientieユーザー様の声</a></li>
+
+<% end %>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>

@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+// header
+
 .jobBtn{
 	text-align: center;
 }
@@ -27,3 +31,43 @@
 .aboutContents{
 	background-color: #464e4f;
 }
+
+.site-navbar h1.navbar-brand{
+	margin: 10px 10px 10px 14px;
+	font-size: 30px;
+}
+
+#Ventie{
+color: red;
+position: fixed;
+top: 16px;
+left: 60px;
+font-size: 26px;
+}
+
+// about
+
+.PT100{
+	margin-top: 100px;
+}
+
+.mb20{
+	margin-bottom: 20px;
+}
+
+.namber{
+	font-size: 43px;
+	position: absolute;
+	top: -2px;
+	left: 164px;
+}
+
+.mbc {
+margin-top: 42px;
+}
+.mbd{
+	margin-top: 60px;
+}
+
+// CSSの追加はここからお願いします
+
