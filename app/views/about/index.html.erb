@@ -20,7 +20,67 @@
 
   <body>
     <div id="page">
-<%= render 'layouts/header' %>
+
+
+
+
+
+      <header id="header" class="site-header">
+
+        <nav id="navbar" class="site-navbar navbar navbar-static-top" role="navigation">
+
+          <div class="container">
+     <%= link_to root_path, id: "Ventie" do %>
+        <span id="Ventie">Ventie</span>
+      <% end %>
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+              <ul id="navigation" class="nav navbar-nav navbar-right">
+<% if user_signed_in? %>
+
+
+            <li id="fat-menu">
+           <%= link_to messages_path, method: :get do %>
+            <i class="fa fa-comment-o fa-2x mb20 ml27"></i>
+           <% end %>
+            </li>
+
+
+            <li id="fat-menu">
+           <%= link_to applies_path, method: :get do %>
+            <i class="fa fa-bell fa-2x mb20"></i>
+            <% end %>
+            </li>
+
+
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Account <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "プロフィール", current_user, method: :get %></li>
+                <li><%= link_to "設定", edit_user_path(current_user), method: :get %></li>
+                <li><%= link_to "Sign out", destroy_user_session_path , method: :delete %></li>
+              </ul>
+            </li>
+
+  <% else %>
+
+                <li class="active"><a href="#header" class="current">Home</a></li>
+                <li><a href="#features">Ventieとは？</a></li>
+                <li><a href="#portfolio">イベントスタッフを依頼する流れ</a></li>
+                <li><a href="#testimonials">イベントスタッフの仕事を受注する流れ</a></li>
+                <li><a href="#blog">Vientieユーザー様の声</a></li>
+
+<% end %>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+
+
+
       <main id="main" class="site-main">
 
 <% if user_signed_in? %>
@@ -38,6 +98,11 @@
 </div><!-- /.jobBtn -->
 
 
+      <footer id="footer" class="site-footer">
+        <div class="container">
+          <div class="copyright"><p>© 2015 Ventie, Inc.</p></div>
+        </div>
+      </footer>
 
 
 <% else %>
@@ -295,11 +360,17 @@
 <!-- ここまでがログインしていないユーザーが見るview -->
 
 
+      <footer class="site-footer">
+        <div class="container">
+          <div class="copyright"><p>© 2015 Ventie, Inc.</p></div>
+        </div>
+      </footer>
+
+
 <% end %>
 
 
 
-<%= render 'layouts/footer' %>
 
       </main>
 
