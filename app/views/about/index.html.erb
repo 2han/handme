@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <title>Ventie</title>
     <%= stylesheet_link_tag "application", media: "all",
                                            "data-turbolinks-track" => true %>
@@ -24,6 +25,8 @@
 
 <% if user_signed_in? %>
 
+
+
 <div class="jobBtn">
   <div class="center">
     <%= link_to "jobを頼む！", new_job_path, class: "btn btn-large" %>
@@ -35,7 +38,13 @@
 </div><!-- /.jobBtn -->
 
 
+
+
 <% else %>
+
+
+
+<!-- ここからがログインしていないユーザーが見るview -->
 
 <div class="header_img">
     <div class="youtube_bg">
@@ -283,8 +292,12 @@
         </section>
 
 
+<!-- ここまでがログインしていないユーザーが見るview -->
+
 
 <% end %>
+
+
 
 <%= render 'layouts/footer' %>
 

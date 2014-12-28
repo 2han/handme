@@ -4,25 +4,24 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th></th>
-      <th>金額</th>
+      <th>報酬額</th>
       <th>依頼者名</th>
-      <th>仕事内容</th>
-      <th>時間</th>
-      <th>場所</th>
+      <th>イベント名</th>
+      <th>作業内容</th>
+      <th>いつ？</th>
+      <th>どこで？</th>
     </tr>
   </thead>
 
   <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td><%= job.status %></td>
         <td><%= job.fee %></td>
-        <td></td>
+        <td><%= job.user.name %></td>
         <td><%= job.title %></td>
+        <td><%= job.introduction %></td>
         <td><%= job.deadline %></td>
         <td><%= job.place %></td>
-<td></td>
         <td class="btn btnMore btn-sm"><%= link_to 'もっと見る', job %></td>
       </tr>
     <% end %>
