@@ -1,6 +1,34 @@
-#footer{
+// #footer{
 	// position: absolute;
 	// bottom: 0;
 	// width: 100%;
-	clear: both;
+// 失敗
+// }
+
+// #footer{
+
+// }
+
+.footerSet{
+	padding-bottom:140px;
+}
+
+html,body{
+     height:100%;
+}
+#wrap{
+     width: 100%;
+     position: relative;
+     height:auto !important; /*IE6対策*/
+     height: 100%; /*IE6対策*/
+     min-height: 100%;
+}
+.contents{
+     padding-bottom:140px; /*フッターの高さと同じ*/
+}
+#footer{
+    height:140px;
+     position:absolute;
+     bottom:0;
+     width: 100%;
 }

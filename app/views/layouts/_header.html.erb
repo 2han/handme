@@ -13,13 +13,19 @@
 <% if user_signed_in? %>
 
 
-            <li id="fat-menu" class="dropdown">
-                <i class="fa fa-comment-o fa-2x mb20 ml27"></i>
+            <li id="fat-menu">
+           <%= link_to messages_path, method: :get do %>
+            <i class="fa fa-comment-o fa-2x mb20 ml27"></i>
+           <% end %>
             </li>
 
-            <li id="fat-menu" class="dropdown">
-                <i class="fa fa-bell fa-2x mb20"></i>
+
+            <li id="fat-menu">
+           <%= link_to applies_path, method: :get do %>
+            <i class="fa fa-bell fa-2x mb20"></i>
+            <% end %>
             </li>
+
 
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
