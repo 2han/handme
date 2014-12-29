@@ -17,6 +17,13 @@ class User < ActiveRecord::Base
   has_many :reviewed_reviews, foreign_key: "reviewing_id", class_name: "Review", dependent: :destroy
   has_many :revieweds, through: :reviewed_reviews
 
+  has_many :to_user_messages, class_name: "Message", foreign_key: "from_user_id", dependent: :destroy
+  has_many :to_users, through: :to_user_messages
+
+  has_many :from_user_messages, foreign_key: "to_user_id", class_name: "Message", dependent: :destroy
+  has_many :from_users, through: :from_user_messages
+
+
   def set_image(file)
       if !file.nil?
         file_name = file.original_filename
@@ -51,6 +58,14 @@ class User < ActiveRecord::Base
 
   def review!(other_user)
     reviewing_reviews.create!(reviewing_id: other_user.id)
+  end
+
+  def to_user?(other_user)
+    to_user_messages.find_by(to_user_id: other_user.id)
+  end
+
+  def message!(other_user)
+    to_user_messages.create!(to_user_id: other_user.id)
   end
 
 # 通常サインアップ時のuid用、Twitter OAuth認証時のemail用にuuidな文字列を生成

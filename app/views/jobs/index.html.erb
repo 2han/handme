@@ -17,7 +17,7 @@
     <% @jobs.each do |job| %>
       <tr>
         <td><%= job.fee %></td>
-        <td><%= job.user.name %></td>
+        <td><%= link_to job.user.name, user_path(job.user) %></td>
         <td><%= job.title %></td>
         <td><%= job.introduction %></td>
         <td><%= job.deadline %></td>

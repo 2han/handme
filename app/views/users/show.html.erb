@@ -1,14 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="userSt">
 
-<p>
-  <strong>名前</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>プロフィール画像</strong>
+<div class="mbSetA">
+<div class="imageShift">
+  <strong><span class="MSP">
   <%= image_tag(@user.image) %>
+</span>
+  <%= @user.name %>
+</strong>
+
 </p>
+
 
 <p>
   <strong>年齢</strong>
@@ -20,7 +21,18 @@
   <%= @user.introduction %>
 </p>
 
-<%= link_to 'レビューを書く', new_review_path(user_id: @user.id) %>
+<span class="btn slideF"><%= link_to 'レビューを書く', new_review_path(user_id: @user.id) %></span>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="btn marginTT"><%= link_to 'Back', users_path %></div>
+</div>
+
+<table class="">
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.score %></td>
+        <td><%= review.text %></td>
+      </tr>
+</table>
+
+
+    <% end %>

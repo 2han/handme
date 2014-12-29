@@ -1,14 +1,30 @@
-<h1>申請されたリスト</h1>
-
+<div class="mk">
 <% @jobs.each do |job|%>
-  <div><%= job.title %></div>
-  <% job.applies.each do |apply| %>
-  <div><%= apply.user_id %></div>
+<% job.applies.each do |apply| %>
+<table class="table table-hover">
 
+<tbody>
+
+<td><%= job.title %></td>
+
+<td>
+  <%= apply.user.name %>
+</td>
+
+<td>
   <% if apply.status == 1 %>
       <%= '承認済み' %>
   <% else %>
       <%= link_to '承認する', approve_apply_path(id: apply.id) %>
   <% end %>
+</td>
+
+</tbody>
+
+</table>
+
+
   <% end %>
 <% end %>
+
+</div>

@@ -12,9 +12,21 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.save
-    # @user = User.find(params[:review][:reviewing_id])
+    @user = User.find(params[:review][:reviewing_id])
     # current_user.review!(@user)
-    redirect_to @review
+    redirect_to @user
+  end
+
+  def reviewing
+    @title = "Reviewing"
+    @user = User.find(params[:id])
+    @users = @user.reviewings.paginate(page: params[:page])
+  end
+
+  def revieweds
+    @title = "Revieweds"
+    @user = User.find(params[:id])
+    @users = @user.revieweds.paginate(page: params[:page])
   end
 
   # def destroy

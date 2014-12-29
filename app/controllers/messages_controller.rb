@@ -21,6 +21,20 @@ class MessagesController < ApplicationController
   def edit
   end
 
+def to_user
+    @title = "To_user"
+    @user = User.find(params[:id])
+    @users = @user.to_user.paginate(page: params[:page])
+end
+
+def from_users
+    @title = "From_users"
+    @user = User.find(params[:id])
+    @users = @user.from_user.pagenate(page: params[:page])
+end
+
+
+
   # POST /messages
   # POST /messages.json
   def create

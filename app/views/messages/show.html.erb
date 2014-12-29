@@ -2,12 +2,12 @@
 
 <p>
   <strong>From user:</strong>
-  <%= @message.from_user_id %>
+  <%= @message.from_user.name %>
 </p>
 
 <p>
   <strong>To user:</strong>
-  <%= @message.to_user_id %>
+  <%= @message.to_user.name %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>Job:</strong>
-  <%= @message.job_id %>
+  <%= @message.apply.job.title %>
 </p>
 
 <%= link_to 'Edit', edit_message_path(@message) %> |

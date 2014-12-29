@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @reviews = @user.reviewed_reviews
   end
 
   # GET /users/new
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
     @title = "Reviewing"
     @user = User.find(params[:id])
     @users = @user.reviewings.paginate(page: params[:page])
+    
   end
 
   def revieweds
@@ -36,6 +38,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.revieweds.paginate(page: params[:page])
   end
+
+
 
   def apply
     @title = 'Apply jobs'
