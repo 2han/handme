@@ -31,7 +31,7 @@
 
           <div class="container">
      <%= link_to root_path, id: "Ventie" do %>
-        <span id="Ventie">Ventie</span>
+        <span id="Ventie" class="">Ventie</span>
       <% end %>
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
               <ul id="navigation" class="nav navbar-nav navbar-right">
@@ -66,11 +66,10 @@
   <% else %>
 
                 <li class="active"><a href="#header" class="current">Home</a></li>
-                <li><a href="#features">Ventieとは？</a></li>
-                <li><a href="#portfolio">イベントスタッフを依頼する流れ</a></li>
-                <li><a href="#testimonials">イベントスタッフの仕事を受注する流れ</a></li>
-                <li><a href="#blog">Vientieユーザー様の声</a></li>
-
+                <li><a href="#features">Ventieとは？丸山用ダミーです。</a></li>
+                <li><a href="#portfolio">イベントスタッフを募集する</a></li>
+                <li><a href="#testimonials">イベントスタッフの仕事をする</a></li>
+                <li><a>sign</a></li>
 <% end %>
               </ul>
             </div>
@@ -89,13 +88,14 @@
 
 <div class="jobBtn">
   <div class="center">
-    <%= link_to "jobを頼む！", new_job_path, class: "btn btn-large" %>
+    <%= link_to "イベント主催者様は、こちらから登録", new_job_path, class: "btn btn-large" %>
   </div>
 
   <div class="center">
-    <%= link_to "jobを探す！", jobs_path, class: "btn btn-large" %>
+    <%= link_to "イベントスタッフの希望の方は、こちらから登録", jobs_path, class: "btn btn-large" %>
   </div>
 </div><!-- /.jobBtn -->
+
 
 
       <footer id="footer" class="site-footer">
@@ -112,19 +112,16 @@
 <!-- ここからがログインしていないユーザーが見るview -->
 
 <div class="header_img">
-    <div class="youtube_bg">
-        <iframe width="560" height="315" src="//www.youtube.com/embed/yhDF1l4YjSE?rel=0&showinfo=0&end=191&autoplay=1&loop=1&playlist=yhDF1l4YjSE" allowfullscreen></iframe>
-    </div>
-　
+    <img class="header-image" src="http://kokucheese.com/images/upload/55774_photo1.jpg?20121002223553">
     <p>
-        <span class="top_header_catch01">Ventie</span>
+        <span class="top_header_catch01 F36304">Ventie</span>
         <span class="top_header_catch02">Ventieはイベントスタッフの<br />マッチングプラットフォームです。</span>
     </p>
 </div>
 
 
 
-        <section class="section section-center section-cta">
+        <section class="section section-center section-hilite section-cta">
           <div class="container">
             <h2 class="section-title"><span>さぁ、新規登録してイベントを楽しくしよう！</span></h2>
             <div class="main-action row">
@@ -135,7 +132,7 @@
           </div>
         </section>
 
-        <section id="features" class="section section-center section-hilite section-features">
+        <section id="features" class="section section-center section-features">
           <div class="container">
             <h2 class="section-title"><span>Ventieとは？</span></h2>
             <div class="row">
@@ -148,38 +145,49 @@
           </div>
         </section>
 
+
+
+
+
+
         <section id="portfolio" class="section section-portfolio">
-          <div class="container">
-            <h2 class="section-title"><span>イベントスタッフを依頼する流れ</span></h2>
-            <ul id="filters">
-<div class="mbd">
-                <div class="col-md-4 col-sm-6">
-                <div class="icon-wrap"><span class="namber">①</span></div>
-                <div class="mbc">
-                <h4>Subheading</h4>
-                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+        <div class="container">
+
+<h2 class="section-title"><span>イベントスタッフを募集する流れ</span></h2>
+
+            <div class="row bs-wizard" style="border-bottom:0;">
+                <div class="col-xs-3 bs-wizard-step complete">
+                  <div class="text-center bs-wizard-stepnum">Step 1</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">イベントを登録する<br>イベントの登録を行います。イベントの作業日、作業内容、報酬額などを書いてスタッフを募集します。</div>
                 </div>
+                
+                <div class="col-xs-3 bs-wizard-step complete"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Step 2</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">イベントスタッフを雇う<br>イベントのスタッフを実際に雇い、イベントをこなす。</div>
+                </div>
+                
+                <div class="col-xs-3 bs-wizard-step active"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Step 3</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">報酬を支払う<br>ユーザーの評価を行い、報酬を支払います。</div>
                 </div>
 
-                <div class="col-md-4 col-sm-6">
-                <div class="icon-wrap"><span class="namber">②</span></div>
-                <div class="mbc">
-                <h4>Subheading</h4>
-                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-                </div>
+                <div class="col-xs-3 bs-wizard-step active"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Step 4</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">完了</div>
                 </div>
 
-                <div class="col-md-4 col-sm-6">
-                <div class="icon-wrap"><span class="namber">③</span></div>
-                <div class="mbc">
-                <h4>Subheading</h4>
-                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-                </div>
-                </div>
-            </ul>
+            </div>
+  </div>
 </div>
-          </div><!-- /.container -->
-        </section>
+       </section>
 
         <!-- Project Modal -->
         <div class="modal fade" id="project-modal" tabindex="-1" role="dialog" aria-labelledby="project-modal-label" aria-hidden="true">
@@ -228,133 +236,60 @@
           </div>
         </div>
 
-        <section id="testimonials" class="section section-center section-hilite section-testimonial">
-          <div class="container">
-            <h2 class="section-title"><span>イベントスタッフの仕事を受注する流れ</span></h2>
+        <section id="portfolio" class="section section-portfolio">
+        <div class="container">
 
-            <ul id="filters">
-<div class="mbd">
-                <div class="col-md-4 col-sm-6">
-                <div class="icon-wrap"><span class="namber">①</span></div>
-                <div class="mbc">
-                <h4>Subheading</h4>
-                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+<h2 class="section-title"><span>イベントスタッフの仕事をする流れ</span></h2>
+
+            <div class="row bs-wizard" style="border-bottom:0;">
+                <div class="col-xs-3 bs-wizard-step complete">
+                  <div class="text-center bs-wizard-stepnum">Step 1</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">イベントを探す<br>スタッフをしたいイベントを探し、日程や条件を確認し、働きたいという希望を出す</div>
                 </div>
+                
+                <div class="col-xs-3 bs-wizard-step complete"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Step 2</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">希望の承認をもらう<br>希望を出したイベントから承認をもらうとその仕事にスタッフ参加する事が出来ます。働きましょう。</div>
+                </div>
+                
+                <div class="col-xs-3 bs-wizard-step active"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Step 3</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">報酬をもらう<br>働いた分の報酬をもらう事が出来ます。この際にイベントの主催者のreviewができます。自分も主催者からreviewをもらえます。</div>
                 </div>
 
-                <div class="col-md-4 col-sm-6">
-                <div class="icon-wrap"><span class="namber">②</span></div>
-                <div class="mbc">
-                <h4>Subheading</h4>
-                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-                </div>
+                <div class="col-xs-3 bs-wizard-step active"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Step 4</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">完了</div>
                 </div>
 
-                <div class="col-md-4 col-sm-6">
-                <div class="icon-wrap"><span class="namber">③</span></div>
-                <div class="mbc">
-                <h4>Subheading</h4>
-                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-                </div>
-                </div>
-            </ul>
+            </div>
+  </div>
 </div>
+       </section>
+
+        <section class="section section-center section-hilite section-cta">
+          <div class="container">
+            <h2 class="section-title"><span>新規登録！</span></h2>
+            <div class="main-action row">
+          <div class="center">
+          <%= link_to "さっそく、登録！", new_user_path, class: "btn-large btn " %>
+          </div>
+            </div>
           </div>
         </section>
 
-        <section id="pricing" class="section section-center section-pricing">
-            <div class="container">
-                <h2 class="section-title"><span>Vintieユーザー様の声</span></h2>
-                <div class="pricing-table">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="panel panel-default">
-                                <header class="panel-heading">
-                                    <h1>Bronze</h1>
-                                    <div class="the-price">$5 <span class="subscript">/ month</span></div>
-                                </header>
-                                <div class="panel-body">
-                                    <table class="table">
-                                        <tbody>
-                                            <tr><td>1 Account</td></tr>
-                                            <tr class="active"><td>1 Project</td></tr>
-                                            <tr><td>50K API Access</td></tr>
-                                            <tr class="active"><td>50MB Storage</td></tr>
-                                            <tr><td>Custom Cloud Services</td></tr>
-                                            <tr class="active"><td>Weekly Reports</td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <footer class="panel-footer"><a href="#" class="btn btn-default">Sign up now</a></footer>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="panel panel-default">
-                                <header class="panel-heading">
-                                    <h1>Silver</h1>
-                                    <div class="the-price">$10 <span class="subscript">/ month</span></div>
-                                </header>
-                                <div class="panel-body">
-                                    <table class="table">
-                                        <tbody>
-                                            <tr><td>1 Account</td></tr>
-                                            <tr class="active"><td>3 Project</td></tr>
-                                            <tr><td>100K API Access</td></tr>
-                                            <tr class="active"><td>100MB Storage</td></tr>
-                                            <tr><td>Custom Cloud Services</td></tr>
-                                            <tr class="active"><td>Weekly Reports</td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <footer class="panel-footer"><a href="#" class="btn btn-default">Sign up now</a></footer>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="panel panel-primary">
-                                <header class="panel-heading">
-                                    <h1>Gold</h1>
-                                    <div class="the-price">$20 <span class="subscript">/ month</span></div>
-                                </header>
-                                <div class="panel-body">
-                                    <table class="table">
-                                        <tbody>
-                                            <tr><td>2 Account</td></tr>
-                                            <tr class="active"><td>5 Project</td></tr>
-                                            <tr><td>100K API Access</td></tr>
-                                            <tr class="active"><td>200MB Storage</td></tr>
-                                            <tr><td>Custom Cloud Services</td></tr>
-                                            <tr class="active"><td>Weekly Reports</td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <footer class="panel-footer"><a href="#" class="btn btn-primary">Sign up now</a></footer>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="panel panel-default">
-                                <header class="panel-heading">
-                                    <h1>Diamond</h1>
-                                    <div class="the-price">$35 <span class="subscript">/ month</span></div>
-                                </header>
-                                <div class="panel-body">
-                                    <table class="table">
-                                        <tbody>
-                                            <tr><td>5 Account</td></tr>
-                                            <tr class="active"><td>20 Project</td></tr>
-                                            <tr><td>300K API Access</td></tr>
-                                            <tr class="active"><td>500MB Storage</td></tr>
-                                            <tr><td>Custom Cloud Services</td></tr>
-                                            <tr class="active"><td>Weekly Reports</td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <footer class="panel-footer"><a href="#" class="btn btn-default">Sign up now</a></footer>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
+
+
+
 
 
 <!-- ここまでがログインしていないユーザーが見るview -->

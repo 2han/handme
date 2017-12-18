@@ -1,38 +1,68 @@
 <div class="userSt">
 
 <div class="mbSetA">
-<div class="imageShift">
-  <strong><span class="MSP">
-  <%= image_tag(@user.image) %>
-</span>
-  <%= @user.name %>
-</strong>
-
-</p>
 
 
-<p>
-  <strong>年齢</strong>
-  <%= @user.age %>
-</p>
 
-<p>
-  <strong>紹介</strong>
-  <%= @user.introduction %>
-</p>
 
-<span class="btn slideF"><%= link_to 'レビューを書く', new_review_path(user_id: @user.id) %></span>
+<div class="resume">
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+    <div class="panel panel-default">
+      <div class="panel-heading resume-heading">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="col-xs-12 col-sm-4">
+              <figure>
+                <%= image_tag(@user.image, size: "300x300", class: "img-circle img-responsive") %>
+              </figure>
 
-<div class="btn marginTT"><%= link_to 'Back', users_path %></div>
+              <div class="row">
+                <div class="col-xs-12 social-btns">
+
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-8">
+              <ul class="list-group">
+                <li class="list-group-item"><%= @user.name %></li>
+                <li class="list-group-item"><%= @user.age %></li>
+              </ul>
+             <div class="userMRT">
+              <span class="ccc btn btn-lg btn-btn"><%= link_to 'レビューを書く', new_review_path(user_id: @user.id) %></span>
+              <span class="btn btn-lg btn-btn"><%= link_to 'Back', users_path %></span>
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="bs-callout bs-callout-danger">
+        <h4>Review</h4>
+        <ul class="list-group">
+          <a class="list-group-item inactive-link" href="#">
+            <h4 class="list-group-item-heading">
+    		<% @reviews.each do |review| %>
+              <span>Score：</span><%= review.score %>
+            </h4>
+          </a>
+
+          <a class="list-group-item inactive-link" href="#">
+            <p class="list-group-item-text">
+              <%= review.text %>
+            </p>
+          </a>
+      </div>
+
+<% end %>
+
+
+  </div>
 </div>
 
-<table class="">
-    <% @reviews.each do |review| %>
-      <tr>
-        <td><%= review.score %></td>
-        <td><%= review.text %></td>
-      </tr>
-</table>
+</div>
 
-
-    <% end %>
+</div>

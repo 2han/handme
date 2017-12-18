@@ -35,7 +35,7 @@ class AppliesController < ApplicationController
     @apply.save
     # saveする
     # redirectする
-    redirect_to @apply
+    redirect_to  @apply
   end
 
 
